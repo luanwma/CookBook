@@ -1,0 +1,75 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fillViewport="true"
+    android:orientation="vertical"
+
+
+    android:visibility="visible"
+    tools:context=".AbrirCategorias">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:context=".AbrirCategorias">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="30sp"
+
+            android:layout_marginTop="10dp"
+            android:padding="2sp"
+
+            android:text=""
+
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ListView
+            android:id="@+id/listaReceitas"
+
+            style="@style/Cadastradas"
+
+
+            android:layout_height="636dp"
+
+            android:clickable="true"
+            android:fadeScrollbars="false"
+
+
+            android:longClickable="true"
+            android:minHeight="500sp"
+            android:scrollbarSize="10dp"
+            android:scrollbars="vertical"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title"
+
+            >
+
+
+        </ListView>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

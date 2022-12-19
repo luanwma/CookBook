@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fillViewport="true"
+    android:orientation="vertical"
+
+
+    android:visibility="visible"
+    tools:context=".AbrirReceitas">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:context=".AbrirReceitas">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="30sp"
+
+            android:layout_marginTop="10dp"
+            android:padding="2sp"
+
+            android:text="@string/Receita"
+
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="20sp"
+
+
+            android:padding="2sp"
+
+
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+
+        <TextView
+            android:id="@+id/txtDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/labelDescricao"
+
+            app:layout_constraintTop_toBottomOf="@id/labelDescricao"
+
+
+            />
+
+        <TextView
+            android:id="@+id/labelDescricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="20sp"
+
+
+            android:padding="2sp"
+
+            android:text="@string/Descricao"
+
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/textData" />
+
+        <TextView
+            android:id="@+id/labelIngredientes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="20dp"
+
+
+            android:padding="2sp"
+
+            android:text="@string/lista_ingredientes"
+
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/txtDescricao" />
+
+        <TextView
+            android:id="@+id/txtIngredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25sp"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/labelDescricao"
+
+            app:layout_constraintTop_toBottomOf="@id/labelIngredientes"
+
+
+            />
+
+        <TextView
+            android:id="@+id/labelModo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="20dp"
+            android:padding="2sp"
+
+            android:text="@string/modo_preparo"
+
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/txtIngredientes" />
+
+
+        <TextView
+            android:id="@+id/txtModoPreparo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/labelModo"
+
+            />
+
+
+
+        <ImageButton
+            android:id="@+id/btnDeleteReceita"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="50sp"
+            android:layout_marginTop="10sp"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtModoPreparo"
+            app:srcCompat="@android:drawable/ic_delete"
+
+
+            />
+
+        <ImageButton
+            android:id="@+id/btnAlterarReceita"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            app:srcCompat="@android:drawable/ic_menu_edit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtModoPreparo"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="200sp"/>
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

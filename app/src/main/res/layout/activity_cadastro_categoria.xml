@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroCategoria"
+    android:background="@drawable/background"
+
+
+
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".CadastroCategoria"
+        >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:padding="2sp"
+
+
+            android:text="@string/nova_categoria"
+
+
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_cadastro"
+            style="@style/containerFormCategoria"
+
+
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+
+
+
+
+           />
+
+
+
+
+
+        <EditText
+            android:id="@+id/text_nome"
+            style="@style/Edit_Text"
+            android:layout_marginTop="30sp"
+            android:hint="@string/text_nome"
+            android:maxLength="50"
+            app:layout_constraintEnd_toEndOf="@id/view_cadastro"
+            app:layout_constraintStart_toStartOf="@id/view_cadastro"
+
+
+            app:layout_constraintTop_toTopOf="@id/view_cadastro" />
+
+        <EditText
+            android:id="@+id/text_descricao"
+            style="@style/Edit_Text"
+            android:layout_marginTop="20sp"
+            android:hint="@string/descricao"
+            android:inputType="textMultiLine"
+            android:maxLength="200"
+            app:layout_constraintEnd_toEndOf="@id/view_cadastro"
+            app:layout_constraintStart_toStartOf="@id/view_cadastro"
+
+            app:layout_constraintTop_toBottomOf="@id/text_nome" />
+
+
+        <Button
+            android:id="@+id/btnCadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastrar"
+
+            app:layout_constraintStart_toStartOf="@id/text_descricao"
+            app:layout_constraintEnd_toEndOf="@id/text_descricao"
+            app:layout_constraintTop_toBottomOf="@id/text_descricao"
+            android:layout_marginTop="20sp"
+            android:textSize="16sp"
+
+            />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.core.widget.NestedScrollView>
+
+

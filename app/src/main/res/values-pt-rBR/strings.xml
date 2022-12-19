@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Livro de Receitas</string>
+    <string name="cadastrar_receita">Cadastrar Receita</string>
+    <string name="imagem_de_logo">Logo Image</string>
+    <string name="entrar">Entrar</string>
+    <string name="title_cadastro">Sign-in</string>
+    <string name="text_nome">Nome</string>
+    <string name="text_sexo">Sexo</string>
+    <string name="text_email">Email</string>
+    <string name="text_senha">Senha</string>
+    <string name="text_cadastro_catalogo">Novo grupo</string>
+    <string name="text_cadastro_receita">Cadastrar Receita</string>
+    <string name="novaReceita">Nova Receita</string>
+    <string name="descricao">Descrição</string>
+    <string name="ingredientes">Ingredientes</string>
+    <string name="modo_preparo">Modo de preparo</string>
+    <string name="selecione_grupo">Selecione o grupo</string>
+    <string name="text_ou">ou</string>
+    <string name="text_crie_grupo">Crie um novo grupo</string>
+    <string name="receitas_cadastradas">Receitas Cadastradas</string>
+    <string name="ultimas_receitas">Últimas Receitas</string>
+    <string name="botaoadicionar">botão de Adicionar</string>
+    <string name="Receita">Receita</string>
+    <string name="Descricao">Descrição</string>
+    <string name="lista_ingredientes">Ingredientes</string>
+    <string name="cadastrar_categoria">Cadastro Categoria</string>
+    <string name="mostrar_categorias">Mostrar Categorias</string>
+    <string name="fez_receita">Já fez essa receita?</string>
+    <string name="ruim">Ruim</string>
+    <string name="razoavel">Razoável</string>
+    <string name="bom">Bom</string>
+    <string name="otimo">Ótimo</string>
+    <string name="excelente">Excelente</string>
+    <string name="cadastrar">Cadastro</string>
+    <string name="limpar">Limpar</string>
+    <string name="data_inicial">Jan 01 2000</string>
+    <string name="listar_categorias">Categorias Cadastradas</string>
+    <string name="nome_aluno">Luan William Marques Alvares</string>
+    <string name="lblNome_aluno">Nome do estudante</string>
+    <string name="lblCurso">Curso</string>
+    <string name="nome_curso">Engenharia de software</string>
+    <string name="email">Email:</string>
+    <string name="email_alunos">luan.2014@alunos.utfpr.edu.br</string>
+    <string name="modo_uso">Modo de usar</string>
+    <string name="nova_categoria">Nova Categoria</string>
+</resources>

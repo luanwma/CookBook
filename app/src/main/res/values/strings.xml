@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">CookBook</string>
+
+
+
+    <string name="cadastrar_receita">Recipe register</string>
+    <string name="imagem_de_logo">Logo Image</string>
+    <string name="entrar">Login</string>
+    <string name="title_cadastro">Sign-in</string>
+    <string name="text_nome">Name:</string>
+    <string name="text_email">Email</string>
+    <string name="text_senha">Password</string>
+    <string name="text_cadastro_catalogo">New Group</string>
+    <string name="text_cadastro_receita">Recipe register</string>
+    <string name="novaReceita">New Recipe</string>
+    <string name="descricao">Description</string>
+    <string name="ingredientes">Ingredients</string>
+    <string name="modo_preparo">Preparation mode</string>
+    <string name="selecione_grupo">Select the Group</string>
+    <string name="text_ou">Or</string>
+    <string name="text_crie_grupo">Create a new group</string>
+    <string name="receitas_cadastradas">Registered recipes</string>
+    <string name="ultimas_receitas">Last Recipes</string>
+    <string name="botaoadicionar">Add button</string>
+    <string name="title_activity_cadastro_receita" translatable="false">CadastroReceitaActivity</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="Descricao">"Description: "</string>
+    <string name="lista_ingredientes">"Ingredients: "</string>
+    <string name="cadastrar_categoria">Register Category</string>
+    <string name="mostrar_categorias">Show categories</string>
+    <string name="fez_receita">Have you made this recipe yet?</string>
+    <string name="ruim">Bad</string>
+    <string name="razoavel">Reasonable</string>
+    <string name="bom">Good</string>
+    <string name="otimo">Excellent</string>
+    <string name="excelente">Great!</string>
+    <string name="cadastrar">Register</string>
+    <string name="limpar">Clean</string>
+
+    <string name="data_inicial">Jan 01 2000</string>
+    <string name="listar_categorias">"Registered Categories "</string>
+    <string name="nome_aluno">Luan William Marques Alvares</string>
+    <string name="lblNome_aluno">Name of the Student:</string>
+    <string name="lblCurso">Course:</string>
+    <string name="nome_curso">Software engineering</string>
+    <string name="email">Email:</string>
+    <string name="email_alunos">luan.2014@alunos.utfpr.edu.br</string>
+    <string name="modo_uso">Way of use:</string>
+    <string name="modo_de_usar" translatable="false">
+        Tela principal tem um botao de adcionar para cadastrar receita e no menu 2 itens um para cadastrar nova categoria e outro para listar todas as categorias.
+
+        Na tela de listagem mostra todas as categorias cadastradas e ao clicar em uma delas abrirá uma tela com uma lista de todas as receitas vinculadas a ela.
+        Ao listar as categorias na tela de listagem um clique longo abre opções no menu para alteração e exclusão das categorias.
+
+        Mas lembre-se ao excluir uma categoria  todas as receitas a ela vinculadas serão excluidas.
+
+        Na tela principal há um menu de contexto na lista das receitas para alteração e exclusã.
+
+        Ao dar um clique curto nas receitas, abrirá os dados da receita.
+
+        Ao cadastrar uma nova receita é necessário vincula-la a uma categoria
+
+
+
+
+
+
+
+
+    </string>
+    <string name="text_sexo">Sex:</string>
+    <string name="Receita">Recipe</string>
+    <string name="modo_de_uso" translatable="false">modo de uso</string>
+    <string name="nova_categoria">New Category</string>
+</resources>

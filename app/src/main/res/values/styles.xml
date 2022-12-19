@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="Edit_Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/caixa_text</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:layout_marginRight">50dp</item>
+
+    </style>
+
+    <style name="Cadastradas">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/caixa_text</item>
+
+        <item name="moveWhenScrollAtTop">false</item>
+        <item name="android:orientation">vertical</item>
+        <item name="nestedScrollable">true</item>
+
+        <item name="android:maxLength">50</item>
+        <item name="android:padding">10dp</item>
+
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+    <style name="spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:background">@drawable/button</item>
+       <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+
+
+    </style>
+
+    <style name="containerFormulario">
+        <item name="android:background">@drawable/container_formulario</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1000dp</item>
+        <item name="android:padding">2dp</item>
+
+    </style>
+
+    <style name="containerFormCategoria">
+        <item name="android:background">@drawable/container_formulario</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">2dp</item>
+    </style>
+
+
+
+</resources>

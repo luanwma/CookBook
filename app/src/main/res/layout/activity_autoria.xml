@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context=".Autoria"
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".AbrirReceitas"
+
+
+        >
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20sp"
+            app:srcCompat="@drawable/logo_utfpr" />
+
+        <TextView
+            android:id="@+id/NomeAluno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="10sp"
+            android:text="@string/nome_aluno"
+
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/lblNome"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/lblNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/lblNome_aluno"
+            android:layout_marginLeft="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/lblCurso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/lblCurso"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/lblNome"
+            app:layout_constraintTop_toBottomOf="@+id/lblNome"
+
+            />
+
+
+        <TextView
+            android:id="@+id/nomeCurso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="20sp"
+            android:text="@string/nome_curso"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/lblCurso"
+            app:layout_constraintTop_toBottomOf="@+id/lblNome"
+
+            />
+
+        <TextView
+            android:id="@+id/Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/email"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/lblCurso"
+            app:layout_constraintTop_toBottomOf="@+id/lblCurso" />
+
+        <TextView
+            android:id="@+id/email_alunos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/email_alunos"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/Email"
+            app:layout_constraintTop_toBottomOf="@+id/lblCurso" />
+
+        <TextView
+            android:id="@+id/modo_uso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/modo_uso"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/Email"
+            app:layout_constraintTop_toBottomOf="@+id/Email" />
+
+        <TextView
+            android:id="@+id/modo_de_usar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="20sp"
+            android:text="@string/modo_de_usar"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/modo_uso"
+            app:layout_constraintTop_toBottomOf="@+id/modo_uso" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>
