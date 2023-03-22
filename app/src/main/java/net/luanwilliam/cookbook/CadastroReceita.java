@@ -1,11 +1,9 @@
 package net.luanwilliam.cookbook;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.AsyncTaskLoader;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AsyncNotedAppOp;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -22,15 +20,14 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import net.luanwilliam.cookbook.DAO.DAO;
 import net.luanwilliam.cookbook.DAO.ReceitaDatabase;
-import net.luanwilliam.cookbook.controle.Controle;
 import net.luanwilliam.cookbook.model.Categoria;
 import net.luanwilliam.cookbook.model.Receita;
 
-import java.sql.SQLOutput;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CadastroReceita extends AppCompatActivity {
@@ -72,13 +69,13 @@ public class CadastroReceita extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_receita);
         ativarElementos();
 
-
+        iniciarDatePicker();
 
 
         btnDatePicker = findViewById(R.id.dataPicker);
-        btnDatePicker.setText(getHoje());
+      //  btnDatePicker.setText(getHoje());
         pushSpinner();
-        iniciarDatePicker();
+
 
 
         Intent intent = getIntent();
@@ -450,23 +447,37 @@ public class CadastroReceita extends AppCompatActivity {
     }
 
     public void iniciarDatePicker(){
+
+        btnDatePicker.setText(getDate());
+
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month += 1;
 
 
-                String data = makeDateString(dayOfMonth, month, year);
+               String data = makeDateString(dayOfMonth, month, year);
+
+
+
 
                 btnDatePicker.setText(data);
                 setDate(data);
 
             }
         };
+        
         Calendar calendar = Calendar.getInstance();
+
+
+
         int ano = calendar.get(Calendar.YEAR);
+
         int dia = calendar.get(Calendar.DAY_OF_MONTH);
         int mes = calendar.get(Calendar.MONTH);
+
 
         int estilo = AlertDialog.THEME_HOLO_LIGHT;
 
@@ -526,6 +537,7 @@ public class CadastroReceita extends AppCompatActivity {
 
     public void setDate(String date){
         datePicked = date;
+
     }
     public String getDate(){
         return datePicked;

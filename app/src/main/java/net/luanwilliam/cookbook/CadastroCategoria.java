@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import net.luanwilliam.cookbook.DAO.DAO;
 import net.luanwilliam.cookbook.DAO.ReceitaDatabase;
-import net.luanwilliam.cookbook.controle.Controle;
+
 import net.luanwilliam.cookbook.model.Categoria;
 
 public class CadastroCategoria extends AppCompatActivity {
