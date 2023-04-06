@@ -11,7 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import net.luanwilliam.cookbook.DAO.ReceitaDatabase
+import net.luanwilliam.cookbook.dao.ReceitaDatabase
 
 class AbrirReceitas : AppCompatActivity() {
     var title: TextView? = null

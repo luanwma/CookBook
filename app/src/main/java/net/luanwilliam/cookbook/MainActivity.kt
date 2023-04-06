@@ -17,7 +17,7 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import net.luanwilliam.cookbook.DAO.ReceitaDatabase
+import net.luanwilliam.cookbook.dao.ReceitaDatabase
 import net.luanwilliam.cookbook.model.Categoria
 import net.luanwilliam.cookbook.model.Receita
 

@@ -1,4 +1,4 @@
-package net.luanwilliam.cookbook.DAO;
+package net.luanwilliam.cookbook.dao;
 
 import android.content.Context;
 

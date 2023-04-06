@@ -16,7 +16,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
-import net.luanwilliam.cookbook.DAO.ReceitaDatabase
+import net.luanwilliam.cookbook.dao.ReceitaDatabase
 import net.luanwilliam.cookbook.model.Categoria
 
 class ListarCategorias : AppCompatActivity() {
