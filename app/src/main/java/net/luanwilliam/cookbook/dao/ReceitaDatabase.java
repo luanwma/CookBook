@@ -41,27 +41,21 @@ public abstract class ReceitaDatabase extends RoomDatabase {
                                 public void run() {
                                     carregaCategorias(context);
                                 }
-
-
                             });
                         }
                     });
                     instance = builder.build();
-
-
                 }
             }
         }
         return instance;
     }
 
-    //não vou usar o contexto
+    //não vou usar o contexto -> entao nao deixa no codigo <3 kkk
     private static void carregaCategorias(final Context context) {
         Categoria cat1 = new Categoria("Doces de Festa", "Doces pequenos");
         instance.categoriaDAO().insert(cat1);
         Categoria cat2 = new Categoria("Salgados de festa", "Salgados pequenos");
         instance.categoriaDAO().insert(cat2);
     }
-
-
 }

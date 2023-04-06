@@ -55,8 +55,7 @@ class AbrirCategorias : AppCompatActivity() {
             listaReceitas = db!!.receitaDAO()!!.listarReceitasIdCategoria(idCat) as List<Receita>?
             runOnUiThread {
                 adapterReceitas = ArrayAdapter(
-                    this@AbrirCategorias,
-                    android.R.layout.simple_list_item_1, listaReceitas!!
+                    this@AbrirCategorias, android.R.layout.simple_list_item_1, listaReceitas!!
                 )
                 listviewReceitas!!.adapter = adapterReceitas
             }
