@@ -1,305 +1,138 @@
-package net.luanwilliam.cookbook;
+package net.luanwilliam.cookbook
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent
+import android.os.AsyncTask
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import net.luanwilliam.cookbook.DAO.ReceitaDatabase
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import net.luanwilliam.cookbook.DAO.ReceitaDatabase;
-import net.luanwilliam.cookbook.model.Categoria;
-import net.luanwilliam.cookbook.model.Receita;
-
-public class AbrirReceitas extends AppCompatActivity {
-
-    TextView title, descricao, ingredientes, modoPreparo, txtViewdata;
-
-    private ImageButton btnAlterar, btnDeletar;
-
-    private int ALTERAR = 1;
-
-    private String MODO = "MODO";
-    private long id ;
-
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abrir_receitas);
-
-        title = findViewById(R.id.title);
-        descricao = findViewById(R.id.txtDescricao);
-        ingredientes = findViewById(R.id.txtIngredientes);
-        modoPreparo = findViewById(R.id.txtModoPreparo);
-        btnAlterar = findViewById(R.id.btnAlterarReceita);
-        btnDeletar = findViewById(R.id.btnDeleteReceita);
-
-        txtViewdata = findViewById(R.id.textData);
-
-
-
-        Intent intent = getIntent();
-
-        Bundle param = intent.getExtras();
-        long id = param.getLong("id");
-        setId(id);
-        String nome = param.getString("nome");
-        String desc = param.getString("descricao");
-        String ingr = param.getString("ingredientes");
-        String modoP = param.getString("modo_preparo");
-        String data = param.getString("data");
-
-
-        title.setText(nome);
-        descricao.setText(desc);
-        ingredientes.setText(ingr);
-        modoPreparo.setText(modoP);
-        txtViewdata.setText("Feito em: "+data);
-
-
-
-
-
-
-
-
-        btnDeletar.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-
-                String msg = "Deseja mesmo excluir a receita? ";
-                AlertDialog.Builder caixa = new AlertDialog.Builder(AbrirReceitas.this);
-
-                caixa.setTitle("Excluir");
-                caixa.setIcon(android.R.drawable.ic_menu_delete);
-                caixa.setMessage(msg);
-
-                caixa.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which){
-
-                        ReceitaDatabase db = ReceitaDatabase.getDatabase(AbrirReceitas.this);
-
-
-                        AsyncTask.execute(() -> {
-                            Receita rec = db.receitaDAO().queryIdReceita(id);
-
-                            db.receitaDAO().delete(rec);
-
-                        });
-
-
-                        Toast.makeText(AbrirReceitas.this, "Receita  deletada", Toast.LENGTH_LONG).show();
-
-                        Intent resultIntent =  new Intent(AbrirReceitas.this, MainActivity.class);
-
-                        finishActivity(1);
-                       startActivity(resultIntent );
-                       finish();
-
-                    }
-                });
-
-                caixa.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(AbrirReceitas.this, "Receita não deletada", Toast.LENGTH_LONG).show();
-
-                        }
-                });
-
-
-            AlertDialog dialog = caixa.create();
-            caixa.show();
-
+class AbrirReceitas : AppCompatActivity() {
+    var title: TextView? = null
+    var descricao: TextView? = null
+    var ingredientes: TextView? = null
+    var modoPreparo: TextView? = null
+    var txtViewdata: TextView? = null
+    private var btnAlterar: ImageButton? = null
+    private var btnDeletar: ImageButton? = null
+    private val ALTERAR = 1
+    private val MODO = "MODO"
+    var id: Long = 0
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_abrir_receitas)
+        title = findViewById(R.id.title)
+        descricao = findViewById(R.id.txtDescricao)
+        ingredientes = findViewById(R.id.txtIngredientes)
+        modoPreparo = findViewById(R.id.txtModoPreparo)
+        btnAlterar = findViewById(R.id.btnAlterarReceita)
+        btnDeletar = findViewById(R.id.btnDeleteReceita)
+        txtViewdata = findViewById(R.id.textData)
+        val intent = intent
+        val param = intent.extras
+        val id = param!!.getLong("id")
+        this.id = id
+        val nome = param.getString("nome")
+        val desc = param.getString("descricao")
+        val ingr = param.getString("ingredientes")
+        val modoP = param.getString("modo_preparo")
+        val data = param.getString("data")
+        title!!.text = nome
+        descricao!!.text = desc
+        ingredientes!!.text = ingr
+        modoPreparo!!.text = modoP
+        txtViewdata!!.text = "Feito em: $data"
+        btnDeletar!!.setOnClickListener {
+            val msg = "Deseja mesmo excluir a receita? "
+            val caixa = AlertDialog.Builder(this@AbrirReceitas)
+            caixa.setTitle("Excluir")
+            caixa.setIcon(android.R.drawable.ic_menu_delete)
+            caixa.setMessage(msg)
+            caixa.setPositiveButton("Sim") { dialog, which ->
+                val db = ReceitaDatabase.getDatabase(this@AbrirReceitas)
+                AsyncTask.execute {
+                    val rec = db!!.receitaDAO()!!.queryIdReceita(id)
+                    db.receitaDAO()!!.delete(rec)
+                }
+                Toast.makeText(this@AbrirReceitas, "Receita  deletada", Toast.LENGTH_LONG).show()
+                val resultIntent = Intent(this@AbrirReceitas, MainActivity::class.java)
+                finishActivity(1)
+                startActivity(resultIntent)
+                finish()
             }
+            caixa.setNegativeButton("Não") { dialog, which -> Toast.makeText(this@AbrirReceitas, "Receita não deletada", Toast.LENGTH_LONG).show() }
+            caixa.show()
+        }
+        btnAlterar!!.setOnClickListener(View.OnClickListener {
+            val msg = "Deseja mesmo alterar a receita? "
+            val caixa = AlertDialog.Builder(this@AbrirReceitas)
+            caixa.setTitle("Alterar")
+            caixa.setIcon(android.R.drawable.ic_menu_edit)
+            caixa.setMessage(msg)
+            caixa.setPositiveButton("Sim") { dialog, which ->
 
-
-        });
-
-        btnAlterar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-               String msg = "Deseja mesmo alterar a receita? ";
-                AlertDialog.Builder caixa = new AlertDialog.Builder(AbrirReceitas.this);
-
-                caixa.setTitle("Alterar");
-                caixa.setIcon(android.R.drawable.ic_menu_edit);
-                caixa.setMessage(msg);
-
-
-                caixa.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which){
-
-                   //     ReceitaDatabase db = ReceitaDatabase.getDatabase(AbrirReceitas.this);
-
-
-                     //   Receita rec = db.receitaDAO().queryIdReceita(id);
-                        Bundle param = new Bundle();
-
-                        param.putInt(MODO, ALTERAR);
-                        param.putLong("id", id);
-                        System.out.println("inserindo id para alterar "+id);
-                        param.putString("title", nome);
-                        param.putString("descricao", desc);
-                        param.putString("ingredientes", ingr);
-                        param.putString("modo_preparo", modoP);
-                        param.putString("data", data);
-
-                        Intent intent = new Intent(AbrirReceitas.this, CadastroReceita.class);
-                        intent.putExtras(param);
-                        startActivity(intent);
-
-
-
-
-
-                    }
-                });
-
-                caixa.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(AbrirReceitas.this, "Receita não deletada", Toast.LENGTH_LONG).show();
-
-                        }
-                });
-
-                AlertDialog dialog = caixa.create();
-                caixa.show();
-
-
-
-                //selecionar receita, encontrar receita, enviar strings
-            /*    Intent intencao = new Intent(AbrirReceitas.this, CadastroReceita.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt(MODO, ALTERAR);
-                //  bundle.putLong(ID_ALTERAR, receita.getId());
-                intencao.putExtras(bundle);
-                startActivity(intencao);*/
-
-
-
+                val param = Bundle()
+                param.putInt(MODO, ALTERAR)
+                param.putLong("id", id)
+                println("inserindo id para alterar $id")
+                param.putString("title", nome)
+                param.putString("descricao", desc)
+                param.putString("ingredientes", ingr)
+                param.putString("modo_preparo", modoP)
+                param.putString("data", data)
+                val intent = Intent(this@AbrirReceitas, CadastroReceita::class.java)
+                intent.putExtras(param)
+                startActivity(intent)
             }
-        });
-
-
+            caixa.setNegativeButton("Não") { dialog, which -> Toast.makeText(this@AbrirReceitas, "Receita não deletada", Toast.LENGTH_LONG).show() }
+            caixa.show()
+        })
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-    public long getId() {
-        return this.id;
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_contexto_receitas, menu)
+        return true
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_contexto_receitas, menu);
-
-        return true;
-    }
-
-
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-
-
-        switch (item.getItemId()){
-            case R.id.menuItem_receitas_alterar:r:
-
-
-
-                return true;
-            case R.id.menuItem_receitas_excluir:
-
-
-                functionDelete(getId());
-
-
-
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menuItem_receitas_alterar -> {
+                functionDelete(id)
+                true
+            }
+            R.id.menuItem_receitas_excluir -> {
+                functionDelete(id)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-
-    public void functionDelete( long id){
-        System.out.println("teste dentro do function "+id);
-
-        String msg = "Deseja mesmo excluir a receita? ";
-        AlertDialog.Builder caixa = new AlertDialog.Builder(AbrirReceitas.this);
-
-        caixa.setTitle("Excluir");
-        caixa.setIcon(android.R.drawable.ic_menu_delete);
-        caixa.setMessage(msg);
-
-        caixa.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which){
-
-                ReceitaDatabase db = ReceitaDatabase.getDatabase(AbrirReceitas.this);
-
-
-                AsyncTask.execute(() -> {
-                    Receita rec = db.receitaDAO().queryIdReceita(id);
-
-                    db.receitaDAO().delete(rec);
-
-
-                });
-
-
-                Toast.makeText(AbrirReceitas.this, "Receita  deletada", Toast.LENGTH_LONG).show();
-
-               Intent resultIntent =  new Intent(AbrirReceitas.this, MainActivity.class);
-
-                finishActivity(1);
-                startActivity(resultIntent );
-               // finish();
-
+    private fun functionDelete(id: Long) {
+        println("teste dentro do function $id")
+        val msg = "Deseja mesmo excluir a receita? "
+        val caixa = AlertDialog.Builder(this@AbrirReceitas)
+        caixa.setTitle("Excluir")
+        caixa.setIcon(android.R.drawable.ic_menu_delete)
+        caixa.setMessage(msg)
+        caixa.setPositiveButton("Sim") { dialog, which ->
+            val db = ReceitaDatabase.getDatabase(this@AbrirReceitas)
+            AsyncTask.execute {
+                val rec = db!!.receitaDAO()!!.queryIdReceita(id)
+                db.receitaDAO()!!.delete(rec)
             }
-
-
-        });
-
-        caixa.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(AbrirReceitas.this, "Receita não deletada", Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-
-        AlertDialog dialog = caixa.create();
-        caixa.show();
-
+            Toast.makeText(this@AbrirReceitas, "Receita  deletada", Toast.LENGTH_LONG).show()
+            val resultIntent = Intent(this@AbrirReceitas, MainActivity::class.java)
+            finishActivity(1)
+            startActivity(resultIntent)
+        }
+        caixa.setNegativeButton("Não") { dialog, which -> Toast.makeText(this@AbrirReceitas, "Receita não deletada", Toast.LENGTH_LONG).show() }
+        caixa.show()
     }
-
-
-
-
 }
