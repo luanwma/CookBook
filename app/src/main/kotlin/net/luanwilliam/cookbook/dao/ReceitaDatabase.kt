@@ -1,61 +1,50 @@
-package net.luanwilliam.cookbook.dao;
+package net.luanwilliam.cookbook.dao
 
-import android.content.Context;
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room.databaseBuilder
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import net.luanwilliam.cookbook.model.Categoria
+import net.luanwilliam.cookbook.model.Receita
+import java.util.concurrent.Executors
 
-import androidx.annotation.NonNull;
-import androidx.room.Database;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
+@Database(entities = [Receita::class, Categoria::class], version = 1)
+abstract class ReceitaDatabase : RoomDatabase() {
+    abstract fun receitaDAO(): ReceitaDAO?
+    abstract fun categoriaDAO(): CategoriaDAO
 
-import net.luanwilliam.cookbook.model.Categoria;
-import net.luanwilliam.cookbook.model.Receita;
-
-import java.util.concurrent.Executors;
-
-
-@Database(entities = {Receita.class, Categoria.class}, version = 1)
-public abstract class ReceitaDatabase extends RoomDatabase {
-
-    public abstract ReceitaDAO receitaDAO();
-
-    public abstract CategoriaDAO categoriaDAO();
-
-    private static ReceitaDatabase instance;
-
-    public static ReceitaDatabase getDatabase(final Context context) {
-
-        if (instance == null) {
-            synchronized (ReceitaDatabase.class) {
-                if (instance == null) {
-                    Builder<ReceitaDatabase> builder = Room.databaseBuilder(context, ReceitaDatabase.class,
-                            "cookbook.db");
-                    builder.fallbackToDestructiveMigration();
-                    builder.addCallback(new Callback() {
-
-                        @Override
-                        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                            super.onCreate(db);
-                            Executors.newSingleThreadScheduledExecutor().execute(new Runnable() {
-                                @Override
-                                public void run() {
-                                    carregaCategorias(context);
-                                }
-                            });
-                        }
-                    });
-                    instance = builder.build();
+    companion object {
+        private var instance: ReceitaDatabase? = null
+        fun getDatabase(context: Context): ReceitaDatabase? {
+            if (instance == null) {
+                synchronized(ReceitaDatabase::class.java) {
+                    if (instance == null) {
+                        val builder = databaseBuilder(
+                            context, ReceitaDatabase::class.java,
+                            "cookbook.db"
+                        )
+                        //builder.fallbackToDestructiveMigration()
+                        /*builder.addCallback(object : Callback() {
+                            override fun onCreate(db: SupportSQLiteDatabase) {
+                                super.onCreate(db)
+                                Executors.newSingleThreadScheduledExecutor().execute { carregaCategorias(context) }
+                            }
+                        })*/
+                        instance = builder.build()
+                        carregaCategorias(context)
+                    }
                 }
             }
+            return instance
         }
-        return instance;
-    }
 
-    //não vou usar o contexto -> entao nao deixa no codigo <3 kkk
-    private static void carregaCategorias(final Context context) {
-        Categoria cat1 = new Categoria("Doces de Festa", "Doces pequenos");
-        instance.categoriaDAO().insert(cat1);
-        Categoria cat2 = new Categoria("Salgados de festa", "Salgados pequenos");
-        instance.categoriaDAO().insert(cat2);
+        //não vou usar o contexto -> entao nao deixa no codigo <3 kkk
+        private fun carregaCategorias(context: Context) {
+            val cat1 = Categoria("Doces de Festa", "Doces pequenos")
+            instance!!.categoriaDAO().insert(cat1)
+            val cat2 = Categoria("Salgados de festa", "Salgados pequenos")
+            instance!!.categoriaDAO().insert(cat2)
+        }
     }
 }
