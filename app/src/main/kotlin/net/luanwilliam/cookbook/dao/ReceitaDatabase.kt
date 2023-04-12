@@ -32,7 +32,7 @@ abstract class ReceitaDatabase : RoomDatabase() {
                             }
                         })*/
                         instance = builder.build()
-                        carregaCategorias(context)
+                        //carregaCategorias(context)
                     }
                 }
             }
