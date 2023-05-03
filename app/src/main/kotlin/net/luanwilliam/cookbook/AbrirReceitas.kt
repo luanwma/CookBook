@@ -103,7 +103,8 @@ class AbrirReceitas : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menuItem_receitas_alterar -> {
-                functionDelete(id)
+                //functionDelete(id)
+                Toast.makeText(this, "Implementar funcinalidade", Toast.LENGTH_SHORT).show()
                 true
             }
             R.id.menuItem_receitas_excluir -> {
