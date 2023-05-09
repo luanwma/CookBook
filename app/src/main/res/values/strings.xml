@@ -22,7 +22,7 @@
     <string name="receitas_cadastradas">Registered recipes</string>
     <string name="ultimas_receitas">Last Recipes</string>
     <string name="botaoadicionar">Add button</string>
-    <string name="title_activity_cadastro_receita" translatable="false">CadastroReceitaActivity</string>
+    <string name="title_activity_cadastro_receita" >CadastroReceitaActivity</string>
     <!-- Strings used for fragments for navigation -->
 
     <string name="Descricao">"Description: "</string>
@@ -40,12 +40,12 @@
 
     <string name="data_inicial">Jan 01 2000</string>
     <string name="listar_categorias">"Registered Categories "</string>
-    <string name="nome_aluno">Luan William Marques Alvares</string>
+    <string name="nome_aluno">Luan William e Grupo de trabalho</string>
     <string name="lblNome_aluno">Name of the Student:</string>
     <string name="lblCurso">Course:</string>
     <string name="nome_curso">Software engineering</string>
     <string name="email">Email:</string>
-    <string name="email_alunos">luan.2014@alunos.utfpr.edu.br</string>
+    <string name="email_alunos">luanwma@hotmail.com</string>
     <string name="modo_uso">Way of use:</string>
     <string name="modo_de_usar" translatable="false">
         Tela principal tem um botao de adcionar para cadastrar receita e no menu 2 itens um para cadastrar nova categoria e outro para listar todas as categorias.
@@ -61,8 +61,7 @@
 
         Ao cadastrar uma nova receita é necessário vincula-la a uma categoria
 
-
-
+        Nesse app tem menus flutuantes 
 
 
 
